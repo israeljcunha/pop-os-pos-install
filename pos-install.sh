@@ -97,6 +97,8 @@ FLATPACK_APP=(
     com.valvesoftware.Steam
     com.discordapp.Discord
     com.jgraph.drawio.desktop
+    com.visualstudio.code
+    com.microsoft.Edge
 )
 
 ## ========================== Instalando APP DEB ===========================
@@ -127,7 +129,7 @@ install_snap(){
     for nome_do_programa in ${SNAP_APP[@]}; do
             if ! dpkg -l | grep -q $nome_do_programa; then 
                 echo "${VERDE}[INSTALANDO] - $nome_do_programa ${SEM_COR}"
-                sudo snap install "$nome_do_programa" -y
+                sudo snap install "$nome_do_programa"
             else
                 echo "${VERMELHO}[INSTALADO] - $nome_do_programa ${SEM_COR}"
             fi
@@ -140,7 +142,7 @@ install_flatpack(){
     for nome_do_programa in ${FLATPACK_APP[@]}; do
             if ! dpkg -l | grep -q $nome_do_programa; then 
                 echo "${VERDE}[INSTALANDO] - $nome_do_programa ${SEM_COR}"
-                sudo snap install "$nome_do_programa" -y
+                sudo flatpak install flathub "$nome_do_programa" -y
             else
                 echo "${VERMELHO}[INSTALADO] - $nome_do_programa ${SEM_COR}"
             fi
