@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# pos-install.sh - Instalar e configura programas no Pop!_OS 22.04 LTS
+# Autor:         Israel Cunha
+
+DEB_APP_FLORENCE=(
+    hydra
+    nmap
+    testdiskf
+    net-tools
+    traceroute
+)
+
+APPS=(
+    ['DEB_APP_FLORENCE']=DEB_APP_FLORENCE
+)
+
+for ext in "${!APPS[@]}": do
+    for progran in "${ext[@]}": do
+        echo progran
