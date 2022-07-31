@@ -21,12 +21,12 @@ SEM_COR='\e[0m'
 SNAP_APP=(
     oxygen-cursors
     brave
-    pycharm-community --classic
-    sublime-text --classic
+    pycharm-community
+    sublime-text
     postman
     insomnia
     jupyter
-    code --classic
+    code
 )
 
 DEB_APP=(
