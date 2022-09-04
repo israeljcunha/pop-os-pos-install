@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
-#
-# pos-install.sh - Instalar e configura programas no Pop!_OS 22.04 LTS
-# Autor:         Israel Cunha
-#
+#####	NOME:				pos-install.sh
+#####	VERSÃO:				0.3.1
+#####	DESCRIÇÃO:			Instalar e configura programas no Pop!_OS 22.04 LTS
+#####	DATA DA CRIAÇÃO:		04/09/2022
+#####	ESCRITO POR:			Israel CUnha
+#####	E-MAIL:				israelcunhamail@gmail.com
+#####	DISTRO:				PopOS! 22.04 (jammy)
+#####	LICENÇA:			GPLv3
 
 ## ========================== URLS ==========================
  
@@ -15,6 +19,8 @@ FILE="/home/$USER/.config/gtk-3.0/bookmarks"
 ## ========================== CORES ==========================
 VERMELHO='\e[1;91m'
 VERDE='\e[1;92m'
+AZUL='\e[1;96m'
+AMARELO='\e[1;93m'
 SEM_COR='\e[0m'
 
 ## ========================== Base de APPS ==========================
@@ -239,6 +245,12 @@ setup(){
     echo "${VERDE}[CONFIG] - Setups ${SEM_COR}"
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     sudo dpkg-reconfigure libdvd-dpkg -y
+    sudo wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
+    sudo chmod +x gnome-shell-extension-installer
+    sudo mv gnome-shell-extension-installer /usr/bin/
+    sudo wget https://raw.githubusercontent.com/NicolasBernaerts/ubuntu-scripts/master/ubuntugnome/gnomeshell-extension-manage
+    sudo chmod 755 gnomeshell-extension-manage
+    sudo mv -iv gnomeshell-extension-manage /usr/local/bin/gnome-shell-extension-manage
 }
 
 testes_internet(){
